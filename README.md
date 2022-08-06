@@ -1,5 +1,4 @@
 # Lesson_15
-# Lesson_14
 # Primary application file
 
 Produce a jupyter lab file that will combine algorithmic trading skills with existing skills in financial Python programming and machine learning to create an algorithmic trading bot that learns and adapts to new data and evolving markets.
