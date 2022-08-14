@@ -46,6 +46,9 @@ The Robo Advisor using Amazon Lex can be viewed at this link. [Amazon Lex](https
 Finally, enhance the robo advisor with an Amazon Lambda function: Create an Amazon Lambda function that validates the user's input and returns the investment portfolio recommendation. This includes testing the Amazon Lambda function and integrating it with the bot.
 
 
+[Lambda Code](/recommendPortfolio.py)
+
+
 ---
 
 ## Information about datasets
