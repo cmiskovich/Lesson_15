@@ -49,6 +49,11 @@ The code used for the Amazon Lambda function can be found in this link:
 [Lambda Code.](/recommendPortfolio.py)
 
 
+The video for the Robo Advisor using Amazon Lex with a Lambda function is located here:  [Amazon Lex with Lambda function.](https://youtu.be/L2iDKACYBhE)
+
+The video shows the outcome for each risk level, followed by the age restriction along with invalid age error, finally the video shows the error for the minimum needed to invest.
+
+
 ---
 
 ## Information about datasets
