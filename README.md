@@ -58,61 +58,27 @@ The video shows the outcome for each risk level, followed by the age restriction
 
 ## Information about datasets
 
-Data frame for OHLCV dataset:
+Functions:
 
-ohlcv_df
+parse_int, Securely converts a non-integer value to integer.
 
-Filter date index and pct_change function to generate returns from close prices:
+build_validation_result, Define a result message structured as Lex response.
 
-signals_df
+get_investment_recommendation, Returns an initial investment recommendation based on the risk profile.
 
-Assign a copy of the sma_fast and sma_slow columns:
+validate_data,  Validates the data provided by the user.
 
-X
+elicit_slot, Defines an elicit slot type response.
 
-Create target set for Signal column:
+delegate, Defines a delegate slot type response.
 
-y
+close, Defines a close slot type response.
 
-Set training beginning and ending dates, train data, and test data:
+recommend_portfolio,  Performs dialog management and fulfillment for recommending a portfolio.
 
-training_begin, training_end
+dispatch, Called when the user specifies an intent for this bot.
 
-X_train, y-train
-
-X_test, y_test
-
-Using StandardScaler fit and transform data:
-
-scaler, X_scaler, X_train_scaled, X_test_scaled
-
-Using SVC classifier model, fit, and predict data:
-
-svm_model, svm_pred
-
-Classification report from SVC model predictions:
-
-svm_testing_report
-
-Create a dataframe with predictions, actual returns, and strategy returns:
-
-predictions_df
-
-Logistic Regression model:
-
-logistical_regression_model
-
-Fit and predict model:
-
-model, pred
-
-Classification report:
-
-test_pred
-
-Create a dataframe with predictions, actual returns, and strategy returns for Logistic Regression model:
-
-lr_predictions_df
+lambda_handler, Route the incoming request based on intent.  The JSON body of the request is provided in the event slot.
 
 
 
@@ -122,26 +88,9 @@ lr_predictions_df
 
 ## Libraries used in analysis
 
-pandas
+datetime
 
-numpy
-
-Path
-
-hvplot
-
-matplotlib
-
-svm
-
-StandardScaler
-
-DateOffset
-
-classification_report
-
-LogisticRegression
-
+dateutil.relativedelta
 
 ---
 
