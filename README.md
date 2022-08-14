@@ -1,7 +1,7 @@
 # Lesson_15
 # Primary application file
 
-Produce a jupyter lab file that will combine algorithmic trading skills with existing skills in financial Python programming and machine learning to create an algorithmic trading bot that learns and adapts to new data and evolving markets.
+Create a Robo Advisor using Amazon Lex and Amazon Lambda.  The Robo advisor will advise you how to invest for retirement based on your level of risk you want to take.
 
 
 ---
@@ -26,118 +26,24 @@ Visual Studio Code
     V8: 9.8.177.11-electron.0
     OS: Darwin x64 21.4.0
     
-Jupyter Lab 
-    Version 3.2.9
+Amazon Lex
+
+Amazon Lambda
     
 
 
 ---
 
 ## General information about analysis.
-Below is the original SMA data that is establishing a baseline performance for the trading algorithm.  This was done by importing the OHLCV dataset into a Pandas data frame.  Generating trading signals using short and long SMA values.  Splitting the data into training and testing datasets.  Use the SVC classifier to fit the training data and make predictions based on the testing data.  Review the classification report.  Then create predictions for predicted, Actual Returns, and Strategy Returns.  Then plot the cumulative return comparing Actual and Strategy Returns.
+There are three parts to this Lesson:
 
-Below is the classification report and plot for the baseline performance.
+First, configure the initial robo advisor: Define an Amazon Lex bot with a single intent that establishes a conversation about requirements to suggest an investment portfolio for retirement.
 
-Original SMA data:
+Next, build and test the robo advisor: Make sure that your bot works and accurately responds during the conversation with the user.
 
-Set the short window and long window:
-short_window = 4
-long_window = 100
+The Robo Advisor using Amazon Lex can be viewed at this link. [Amazon Lex](https://youtu.be/9In63Aeqz7U)
 
-
-
-
-
-
-Originial Training period of 3 months:
-
-Select the start of the training period
-training_begin = X.index.min()
-
-
-Select the ending period for the training data with an offset of 3 months:
-training_end = X.index.min() + DateOffset(months=3)
-
-                precision    recall  f1-score   support
-
-        -1.0       0.43      0.04      0.07      1804
-         1.0       0.56      0.96      0.71      2288
-
-    accuracy                           0.55      4092
-   
-
-
-![Originial SMA](/Original_SMA_plot.png)
-
-
-
-The baseline performance had precision of 43% and a recall of 4% for the -1.0 class and precision of 56% and 96% for the 1.0 class with an overall accuracy of 55%.
-
-
-
-
-
-Backtest original data with Logistic Regression:
-
-                precision    recall  f1-score   support
-
-        -1.0       0.44      0.33      0.38      1804
-         1.0       0.56      0.66      0.61      2288
-
-    accuracy                           0.52      4092
-    
-    
-  ![Originial LR](/Original_withLR.png)
-  
-  
-  The Backtest data with Logistic Regression had increases for precision and recall for the -1.0 class and the precision was the same for 1.0 class the recall decreased for the 1.0 class.  The overall accuracy also decreased after using Logistic Regression.
-  
-  Data for baseline and Logistic Regression models are saved to the file: machine_learing_training_bot.ipynb
-
-
-
-
-
-
-
-
-Updated SMA Data:
-
-Select the start of the training period:
-training_begin = X.index.min()
-
-
-Select the ending period for the training data with an offset of 24 months:
-training_end = X.index.min() + DateOffset(months=24)
-
-
-Set the short window and long window
-short_window = 25
-long_window = 175
-
-                precision    recall  f1-score   support
-
-        -1.0       0.48      0.02      0.03      1155
-         1.0       0.56      0.98      0.71      1458
-
-    accuracy                           0.56      2613
-
-
-
-
-![Updated SMA](/Updated_SMA_plot.png)
-
-
-
-What impact resulted from increasing the training window and both of the SMA windows?
-
-After increasing the short and long window in the SMA data along with increasing the number of months of testing.  The precision for -1.0 class and recall for the 1.0 class increased.  The precision for 1.0 class was the same and the recall for -1.0 class decreased slightly.  However, the accuracy increased by 1%.  Accuracy was expected to increase since we used for months for training data and more data usually helps with accuracy.
-
-
-On the baseline and Logistic Regression models have a big gap in Strategy and Actual Results.  The adjusted model in 2019 runs with expected results and stays close until late 2020.  All three models missed on the large increase in late 2020 and early 2021 they all predicted a downward trend for the strategy returns and the actual returns increased significantly.
-
-
-Data for adjusted amounts are saved as file: adjusted_machine_learing_training_bot.ipynb
+Finally, enhance the robo advisor with an Amazon Lambda function: Create an Amazon Lambda function that validates the user's input and returns the investment portfolio recommendation. This includes testing the Amazon Lambda function and integrating it with the bot.
 
 
 ---
